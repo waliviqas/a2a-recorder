@@ -1,0 +1,17 @@
+[project]
+name = "a2a-recorder"
+version = "0.1.0"
+description = "Records conversations between agents, across any framework"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+crewai = ["crewai>=0.30.0"]
+dev = ["crewai>=0.30.0"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
