@@ -20,32 +20,27 @@ pip install a2a-recorder[crewai]
 
 ## Use it
 
-Add 3 lines to your CrewAI code:
+Add one line to your CrewAI code:
 
 ```python
-from recorder.storage import JSONLStorage
-from recorder.adapters.crewai import CrewAIAdapter
+from recorder import Recorder
 
-storage = JSONLStorage("recordings.jsonl")   # 1. where to save
-adapter = CrewAIAdapter(storage)             # 2. set up the recorder
-adapter.wrap(crew)                           # 3. plug it into your crew
+Recorder.start(crew)       # that's it — recording starts automatically
 
-crew.kickoff()                               # run normally — recording happens automatically
+crew.kickoff()              # runs normally
 ```
 
-That's it. After your crew runs, open `recordings.jsonl` and you'll see every message your agents sent each other.
+After the run, every agent message is saved to `recordings.db` — a SQLite database any app can read.
 
 ## What you get
 
-A text file with **one message per line.** Like this:
+A SQLite database with **one row per message.** Every message has the same fields no matter which framework you used — so your recordings stay consistent even when you switch from CrewAI to AutoGen later.
 
-```
-{"from_agent": "researcher", "content": "found 3 sources", "turn": 1, ...}
-{"from_agent": "writer",     "content": "drafted intro",   "turn": 2, ...}
-{"from_agent": "editor",     "content": "polished it",     "turn": 3, ...}
-```
-
-Every message has the same fields no matter which framework you used. That's the point — your recordings stay consistent even when you switch from CrewAI to AutoGen later.
+| from_agent | to_agent | content | turn | protocol |
+|---|---|---|---|---|
+| researcher | crew | "found 3 sources" | 1 | crewai |
+| writer | crew | "drafted intro" | 2 | crewai |
+| editor | crew | "polished it" | 3 | crewai |
 
 ## Roadmap
 
