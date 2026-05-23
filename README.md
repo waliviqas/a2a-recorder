@@ -2,11 +2,11 @@
 
 **Records what your AI agents say to each other.**
 
-If you've ever built a multi-agent app and wondered *"wait, what did they actually say?"* — that's what this is for.
+If you've ever built a multi-agent app and wondered *"wait, what did they actually say?"*...that's what this is for.
 
-When two agents talk to each other, it's a black box. You don't know if they hallucinated, agreed on something wrong, or talked each other into a bad decision — and the more you trust them to do, the more that matters. You can't trust what you can't see.
+When two agents talk to each other, it's a black box. You don't know if they hallucinated, agreed on something wrong, or talked each other into a bad decision, and the more tasks you trust them to do, the more that matters. You can't trust what you can't see.
 
-`a2a-recorder` saves every message between your agents so you can actually look at what they said — and decide whether to trust them.
+`a2a-recorder` saves every message between your agents so you can actually look at what they said and trace backs the steps as to why they made the decision that they did.
 
 Open-source. Alpha. Works with CrewAI today. More frameworks coming.
 
